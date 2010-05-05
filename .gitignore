@@ -1,0 +1,5 @@
+.*
+*.o
+
+# exceptions to the above rules
+!.gitignore
