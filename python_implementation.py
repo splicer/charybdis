@@ -1,9 +1,9 @@
 #! /usr/bin/python2.6
 
 def ycc_from_rgb(rgb):
-    y = 0.257 * rgb[0] + 0.504 * rgb[1] + 0.098 * rgb[2] + 16
-    cb = -0.148 * rgb[0] - 0.291 * rgb[1] + 0.439 * rgb[2] + 128
-    cr = 0.439 * rgb[0] - 0.368 * rgb[1] - 0.071 * rgb[2] + 128
+    y = (int(round(65.738/256 * rgb[0] * 2)), int(round(129.057/256 * rgb[1] * 2)), int(round(25.064/256 * rgb[2] * 2)), 16 * 2)
+    cb = (int(round(-37.945/256 * rgb[0] * 2)), int(round(-74.494/256 * rgb[1] * 2)), int(round(112.439/256 * rgb[2] * 2)), 128 * 2)
+    cr = (int(round(112.439/256 * rgb[0] * 2)), int(round(-94.154/256 * rgb[1] * 2)), int(round(-18.285/256 * rgb[2] * 2)), 128 * 2)
     return (y, cb, cr)
 
 def downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4):
