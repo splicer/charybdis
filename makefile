@@ -1,5 +1,5 @@
 CC = arm-linux-gnueabi-gcc
-CFLAGS = -Wall -O2 -g
+CFLAGS = -Wall -Wextra -O2 -g -std=gnu99
 AS = arm-linux-gnueabi-as
 ASFLAGS = --gstabs
 
@@ -7,6 +7,7 @@ ASFLAGS = --gstabs
 all: test.elf
 
 test.elf: main.o
+	$(CC) -o $@ $^
 
 main.o: main.c
 
