@@ -1,7 +1,8 @@
 #! /usr/bin/python2.6
 
 def ycc_from_rgb(rgb):
-    y = (int(round(65.738/256 * rgb[0] * 2)), int(round(129.057/256 * rgb[1] * 2)), int(round(25.064/256 * rgb[2] * 2)), 16 * 2)
+    # 8-bit RGB -> 8,9,9-bit YCbCr
+    y = (int(round(65.738/256 * rgb[0])), int(round(129.057/256 * rgb[1])), int(round(25.064/256 * rgb[2])), 16)
     cb = (int(round(-37.945/256 * rgb[0] * 2)), int(round(-74.494/256 * rgb[1] * 2)), int(round(112.439/256 * rgb[2] * 2)), 128 * 2)
     cr = (int(round(112.439/256 * rgb[0] * 2)), int(round(-94.154/256 * rgb[1] * 2)), int(round(-18.285/256 * rgb[2] * 2)), 128 * 2)
     return (y, cb, cr)
