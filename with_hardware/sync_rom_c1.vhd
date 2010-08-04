@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- Synthesizable syncronous 8-bit in 8-bit out ROM.
--- Outputs the input multiplied by c1.
+-- Outputs the input multiplied by c1 (as an unsigned integer).
 -- 
 -- Based on code by M. Treseler available at:
 -- http://mysite.ncnetwork.net/reszotzl/sync_rom.vhd
@@ -9,7 +9,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity sync_rom is
+entity sync_rom_c1 is
     generic (data_length : natural := 8;
              add_length  : natural := 8);
 
@@ -17,9 +17,9 @@ entity sync_rom is
            address      : in  std_logic_vector(add_length-1 downto 0);
            data_out     : out std_logic_vector(data_length-1 downto 0)
        );
-end sync_rom;
+end sync_rom_c1;
 
-architecture synth of sync_rom is ---------------------------------------------
+architecture synth_c1 of sync_rom_c1 is ---------------------------------------------
     constant mem_size : natural := 2**add_length;
     type     mem_type is array (mem_size-1 downto 0) of
     std_logic_vector (data_length-1 downto 0);
@@ -290,5 +290,5 @@ begin
         end if;
     end process rom;
 
-end architecture synth;
+end architecture synth_c1;
 
