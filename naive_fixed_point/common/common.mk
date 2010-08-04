@@ -15,5 +15,8 @@ all: $(PRIMARY_TARGET)
 clean:
 	$(RM) *.o $(PRIMARY_TARGET)
 
+OBJS += rgb2y.o
+rgb2y.o: rgb2y.c
+
 $(PRIMARY_TARGET): $$(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)

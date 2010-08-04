@@ -1,85 +1,41 @@
-#include <stdint.h>
 #include <stdio.h>
+#include <rgb2y.h>
 
-#include "test_image.h"
+static const rgb2y_rgbPixel_t rgbImage[4] = {
+    { 200, 0, 2 },
+    { 127, 0, 0 },
+    { 155, 2, 0 },
+    { 140, 4, 2 }
+};
 
+static const rgb2y_yQuad_t expectedYccImage[1] = {
+    { { 67, 48, 56, 54 }, 52, 97 }
+};
 
-/* 8-bit */
-static inline int rgb2y(int r, int g, int b)
-{
-    int y = ((int)((65.738 * 256) + 0.5) * r) + ((int)((129.057 * 256) + 0.5) * g) + ((int)((25.064 * 256) + 0.5) * b) + (256*256) * 16;
-    y = y / (256 * 256);
-    return y;
-}
+static rgb2y_yQuad_t yccImage[1];
 
-/* 9-bit */
-static inline int rgb2cb(int r, int g, int b)
-{
-    int cb = ((int)((-37.945 * 512) - 0.5) * r) + ((int)((-74.494 * 512) - 0.5) *g) + ((int)((112.439 *512) + 0.5) *b) + (512*256) * 128;
-    cb = cb / (512 * 256);
-    return cb;
-}
-
-/* 9-bit */
-static inline int rgb2cr(int r, int g, int b)
-{
-    int cr = ((int)((112.439 * 512) + 0.5) * r) + ((int)((-94.154 * 512) - 0.5) *g) + ((int)((-18.285 * 512) - 0.5) *b) + (512*256) * 128;
-    cr = cr / (512 * 256);
-    return cr;
-}
 
 int main()
 {
-    for( int i=0; i<IMG_ROWS; i++ ) {
-
-        for( int j=0; j<IMG_COLS/4; j++ ) {
-
-            int r = image[i][j][0];
-            int g = image[i][j][1];
-            int b = image[i][j][2];
-
-            int y1 = rgb2y(r, g, b);
-            int cb1 = rgb2cb(r, g, b);
-            int cr1 = rgb2cr(r, g, b);
-
-            r = image[i][j+1][0];
-            g = image[i][j+1][1];
-            b = image[i][j+1][2];
-
-            int y2 = rgb2y(r, g, b);
-            int cb2 = rgb2cb(r, g, b);
-            int cr2 = rgb2cr(r, g, b);
-
-            r = image[i][j+2][0];
-            g = image[i][j+2][1];
-            b = image[i][j+2][2];
-
-            int y3 = rgb2y(r, g, b);
-            int cb3 = rgb2cb(r, g, b);
-            int cr3 = rgb2cr(r, g, b);
-
-            r = image[i][j+3][0];
-            g = image[i][j+3][1];
-            b = image[i][j+3][2];
-
-            int y4 = rgb2y(r, g, b);
-            int cb4 = rgb2cb(r, g, b);
-            int cr4 = rgb2cr(r, g, b);
-
-            int cb = (cb1 + cb2 + cb3 + cb4) / 4 / 2;
-            int cr = (cr1 + cr2 + cr3 + cr4) / 4 / 2;
-        
-            printf("Raw values:\n");
-            printf("%3d %3d %3d\n", y1, cb1, cr1);
-            printf("%3d %3d %3d\n", y2, cb2, cr2);
-            printf("%3d %3d %3d\n", y3, cb3, cr3);
-            printf("%3d %3d %3d\n\n", y4, cb4, cr4);
-
-            printf("Averaged (y,y,y,y, cb,cr):\n");
-            printf("%3d %3d %3d %3d\n", y1, y2, y3, y4);
-            printf("%3d %3d\n", cb, cr);
-        }
-    }
+    int retVal = rgb2y_convertImage( rgbImage, 2, 2, yccImage );
+    
+    printf( "rgb2y_convertImage() returned %d\n", retVal );
+    printf( "here's the ycc image:\n" );
+    printf( "{{%u, %u, %u, %u}, %u, %u}\n",
+            yccImage[0].y[0],
+            yccImage[0].y[1],
+            yccImage[0].y[2],
+            yccImage[0].y[3],
+            yccImage[0].cb,
+            yccImage[0].cr );
+    printf( "here's the expected ycc image:\n" );
+    printf( "{{%u, %u, %u, %u}, %u, %u}\n",
+            expectedYccImage[0].y[0],
+            expectedYccImage[0].y[1],
+            expectedYccImage[0].y[2],
+            expectedYccImage[0].y[3],
+            expectedYccImage[0].cb,
+            expectedYccImage[0].cr );
 
     return 0;
 }
