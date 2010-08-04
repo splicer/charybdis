@@ -1,4 +1,5 @@
 #include <rgb2y.h>
+#include <stdio.h>
 
 
 /* 8-bit */
@@ -20,7 +21,7 @@ static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
         ( ( int32_t )( ( -74.494 * 512 ) - 0.5 ) * g ) +
         ( ( int32_t )( ( 112.439 * 512 ) + 0.5 ) * b ) +
         ( 512 * 256 ) * 128;
-    cb = cb / ( 512 * 256 );
+    cb = cb / ( 256 * 256 );
     return ( uint16_t )cb;
 }
 
@@ -32,7 +33,7 @@ static inline uint16_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
         ( ( int32_t )( ( -94.154 * 512 ) - 0.5 ) * g ) +
         ( ( int32_t )( ( -18.285 * 512 ) - 0.5 ) * b ) +
         ( 512 * 256 ) * 128;
-    cr = cr / ( 512 * 256 );
+    cr = cr / ( 256 * 256 );
     return ( uint16_t )cr;
 }
 

@@ -2,10 +2,17 @@
 #include <rgb2y.h>
 
 static const rgb2y_rgbPixel_t rgbImage[4] = {
+#if 1
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff }
+#else
     { 200, 0, 2 },
     { 127, 0, 0 },
     { 155, 2, 0 },
     { 140, 4, 2 }
+#endif
 };
 
 static const rgb2y_yQuad_t expectedYccImage[1] = {
