@@ -1,5 +1,4 @@
 #include <rgb2y.h>
-#include <stdio.h>
 
 
 /* 8-bit */

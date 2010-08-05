@@ -15,10 +15,10 @@ static const rgb2y_rgbPixel_t test_rgbImage[TEST_WIDTH * TEST_HEIGHT] = {
     { 0xff, 0xff, 0xff },
     { 200, 0, 2 },
     { 127, 0, 0 },
-    { 155, 2, 0 },
-    { 140, 4, 2 },
     { 200, 0, 2 },
     { 127, 0, 0 },
+    { 155, 2, 0 },
+    { 140, 4, 2 },
     { 155, 2, 0 },
     { 140, 4, 2 }
 };
