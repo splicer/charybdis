@@ -4,11 +4,12 @@
 /* 8-bit */
 static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 {
-    uint32_t y = ( ( uint32_t )( ( 65.738 * 256 ) + 0.5 ) * r ) +
-        ( ( uint32_t )( ( 129.057 * 256 ) + 0.5 ) * g ) +
-        ( (uint32_t )( ( 25.064 * 256 ) + 0.5 ) * b ) +
-        ( 256 * 256 ) * 16;
-    y = y / ( 256 * 256 );
+    // FP shift of 24
+    uint32_t y = ( ( uint32_t )( ( 65.738 * ( 1<<16 ) ) + 0.5 ) * r ) +
+        ( ( uint32_t )( ( 129.057 * ( 1<<16 ) ) + 0.5 ) * g ) +
+        ( (uint32_t )( ( 25.064 * ( 1<<16 ) ) + 0.5 ) * b ) +
+        ( 256 * ( 1<<16 ) ) * 16;
+    y = ( y + ( 1<<23 ) ) >> 24;
     return ( uint16_t )y;
 }
 
@@ -16,11 +17,12 @@ static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 /* 9-bit */
 static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 {
-    int32_t cb = ( ( int32_t )( ( -37.945 * 512 ) - 0.5 ) * r ) +
-        ( ( int32_t )( ( -74.494 * 512 ) - 0.5 ) * g ) +
-        ( ( int32_t )( ( 112.439 * 512 ) + 0.5 ) * b ) +
-        ( 512 * 256 ) * 128;
-    cb = cb / ( 256 * 256 );
+    // FP shift of 22
+    int32_t cb = ( ( int32_t )( ( -37.945 * ( 1<<15 ) ) - 0.5 ) * r ) +
+        ( ( int32_t )( ( -74.494 * ( 1<<15 ) ) - 0.5 ) * g ) +
+        ( ( int32_t )( ( 112.439 * ( 1<<15 ) ) + 0.5 ) * b ) +
+        ( 256 * ( 1<<15 ) ) * 128;
+    cb = ( cb + ( 1<<21 ) ) >> 22;
     return ( uint16_t )cb;
 }
 
@@ -28,11 +30,12 @@ static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 /* 9-bit */
 static inline uint16_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
 {
-    int32_t cr = ( ( int32_t )( ( 112.439 * 512 ) + 0.5 ) * r ) +
-        ( ( int32_t )( ( -94.154 * 512 ) - 0.5 ) * g ) +
-        ( ( int32_t )( ( -18.285 * 512 ) - 0.5 ) * b ) +
-        ( 512 * 256 ) * 128;
-    cr = cr / ( 256 * 256 );
+    // FP shift of 22
+    int32_t cr = ( ( int32_t )( ( 112.439 * ( 1<<15 ) ) + 0.5 ) * r ) +
+        ( ( int32_t )( ( -94.154 * ( 1<<15 ) ) - 0.5 ) * g ) +
+        ( ( int32_t )( ( -18.285 * ( 1<<15 ) ) - 0.5 ) * b ) +
+        ( 256 * ( 1<<15 ) ) * 128;
+    cr = ( cr + ( 1<<21 ) ) >> 22;
     return ( uint16_t )cr;
 }
 
