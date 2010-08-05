@@ -12,8 +12,9 @@ def downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4):
     ycc2 = ycc_from_rgb(rgb2)
     ycc3 = ycc_from_rgb(rgb3)
     ycc4 = ycc_from_rgb(rgb4)
-    avg_cb = sum((ycc1[1], ycc2[1], ycc3[1], ycc4[1])) / 4 / 2
-    avg_cr = sum((ycc1[2], ycc2[2], ycc3[2], ycc4[2])) / 4 / 2
+    # Cb and Cr are downsampled from 9-bit to 8-bit using proper rounding (hence the +4)
+    avg_cb = (sum((ycc1[1], ycc2[1], ycc3[1], ycc4[1])) + 4) / 8
+    avg_cr = (sum((ycc1[2], ycc2[2], ycc3[2], ycc4[2])) + 4) / 8
     return (ycc1[0], ycc2[0], ycc3[0], ycc4[0], avg_cb, avg_cr)
 
 if __name__ == '__main__':
