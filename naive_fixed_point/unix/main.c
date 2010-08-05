@@ -23,8 +23,11 @@ static const rgb2y_rgbPixel_t test_rgbImage[TEST_WIDTH * TEST_HEIGHT] = {
     { 140, 4, 2 }
 };
 
-static const rgb2y_yQuad_t expectedYccImage[1] = {
-    { { 67, 49, 57, 54 }, 105, 196 }
+static const rgb2y_yQuad_t expectedYccImage[4] = {
+    { { 235, 235, 235, 235 }, 128, 128 },
+    { { 235, 235, 235, 235 }, 128, 128 },
+    { { 68, 49, 57, 54 }, 105, 196 },
+    { { 68, 49, 57, 54 }, 105, 196 }
 };
 
 static rgb2y_yQuad_t yccImage[1];
@@ -52,7 +55,7 @@ int main()
     printf( "here's the ycc image:\n" );
     printYccImage( yccImage, TEST_WIDTH * TEST_HEIGHT / 4 );
     printf( "here's the expected ycc image:\n" );
-    printYccImage( expectedYccImage, 1 );
+    printYccImage( expectedYccImage, 4 );
 
     return 0;
 }
