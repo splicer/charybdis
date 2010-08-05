@@ -1,18 +1,26 @@
 #include <stdio.h>
 #include <rgb2y.h>
 
-static const rgb2y_rgbPixel_t rgbImage[4] = {
-#if 1
+#define TEST_WIDTH 4
+#define TEST_HEIGHT 4
+
+static const rgb2y_rgbPixel_t test_rgbImage[TEST_WIDTH * TEST_HEIGHT] = {
     { 0xff, 0xff, 0xff },
     { 0xff, 0xff, 0xff },
     { 0xff, 0xff, 0xff },
-    { 0xff, 0xff, 0xff }
-#else
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 0xff, 0xff, 0xff },
+    { 200, 0, 2 },
+    { 127, 0, 0 },
+    { 155, 2, 0 },
+    { 140, 4, 2 },
     { 200, 0, 2 },
     { 127, 0, 0 },
     { 155, 2, 0 },
     { 140, 4, 2 }
-#endif
 };
 
 static const rgb2y_yQuad_t expectedYccImage[1] = {
@@ -22,27 +30,29 @@ static const rgb2y_yQuad_t expectedYccImage[1] = {
 static rgb2y_yQuad_t yccImage[1];
 
 
+static void printYccImage( const rgb2y_yQuad_t *img, uint16_t numElements )
+{
+    for( uint16_t i = 0; i < numElements; i++ ) {
+        printf( "{{%u, %u, %u, %u}, %u, %u}\n",
+                img[i].y[0],
+                img[i].y[1],
+                img[i].y[2],
+                img[i].y[3],
+                img[i].cb,
+                img[i].cr );
+    }
+}
+
+
 int main()
 {
-    int retVal = rgb2y_convertImage( rgbImage, 2, 2, yccImage );
-    
+    int retVal = rgb2y_convertImage( test_rgbImage, TEST_WIDTH, TEST_HEIGHT, yccImage );
+
     printf( "rgb2y_convertImage() returned %d\n", retVal );
     printf( "here's the ycc image:\n" );
-    printf( "{{%u, %u, %u, %u}, %u, %u}\n",
-            yccImage[0].y[0],
-            yccImage[0].y[1],
-            yccImage[0].y[2],
-            yccImage[0].y[3],
-            yccImage[0].cb,
-            yccImage[0].cr );
+    printYccImage( yccImage, TEST_WIDTH * TEST_HEIGHT / 4 );
     printf( "here's the expected ycc image:\n" );
-    printf( "{{%u, %u, %u, %u}, %u, %u}\n",
-            expectedYccImage[0].y[0],
-            expectedYccImage[0].y[1],
-            expectedYccImage[0].y[2],
-            expectedYccImage[0].y[3],
-            expectedYccImage[0].cb,
-            expectedYccImage[0].cr );
+    printYccImage( expectedYccImage, 1 );
 
     return 0;
 }
