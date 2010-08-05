@@ -87,8 +87,9 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
             uint16_t cb4 = rgb2cb( p->r, p->g, p->b );
             uint16_t cr4 = rgb2cr( p->r, p->g, p->b );
 
-            yQuad->cb = (cb1 + cb2 + cb3 + cb4) / 4 / 2;
-            yQuad->cr = (cr1 + cr2 + cr3 + cr4) / 4 / 2;
+            // downsample 4 9-bit values to 1 8-bit value for Cb and Cr
+            yQuad->cb = ( ( cb1 + cb2 + cb3 + cb4 ) + ( 1<<2 ) ) >> 3;
+            yQuad->cr = ( ( cr1 + cr2 + cr3 + cr4 ) + ( 1<<2 ) ) >> 3;
 
             yQuad++;
         }
