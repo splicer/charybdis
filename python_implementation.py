@@ -12,17 +12,21 @@ def downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4):
     ycc2 = ycc_from_rgb(rgb2)
     ycc3 = ycc_from_rgb(rgb3)
     ycc4 = ycc_from_rgb(rgb4)
-    avg_cb = sum((ycc1[1], ycc2[1], ycc3[1], ycc4[1])) / 4
-    avg_cr = sum((ycc1[2], ycc2[2], ycc3[2], ycc4[2])) / 4
+    avg_cb = sum((ycc1[1], ycc2[1], ycc3[1], ycc4[1])) / 4 / 2
+    avg_cr = sum((ycc1[2], ycc2[2], ycc3[2], ycc4[2])) / 4 / 2
     return (ycc1[0], ycc2[0], ycc3[0], ycc4[0], avg_cb, avg_cr)
 
 if __name__ == '__main__':
     import random
     random.seed()
-    rgb1 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    rgb2 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    rgb3 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    rgb4 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    rgb1 = (200, 0, 2)
+    rgb2 = (127, 0, 0)
+    rgb3 = (155, 2, 0)
+    rgb4 = (140, 4, 2)
+    #rgb1 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    #rgb2 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    #rgb3 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    #rgb4 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     print "RGB1: %s" % str(rgb1)
     print "RGB2: %s" % str(rgb2)
     print "RGB3: %s" % str(rgb3)
