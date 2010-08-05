@@ -1,13 +1,30 @@
 #include <rgb2y.h>
 
+/* These coefficients are derived from the analog-to-analog matrix as follows:
+ *
+ * (Matlab code)
+ *
+ * a_to_a = [0.299 0.587 0.114; -0.168736 -0.331264 0.5; 0.5 -0.418688 -0.081312]
+ *
+ * a_to_d = [219 0 0; 0 224 0; 0 0 224] * a_to_a
+ *
+ * d_to_d = 256/255 * a_to_d
+ *
+ *
+ * Important Notes
+ * ---------------
+ *
+ * Also, according to the C99 standard, casting a float to an int rounds
+ * towards zero.
+ */
 
 /* 8-bit */
 static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 {
     // FP shift of 24
-    uint32_t y = ( ( uint32_t )( ( 65.738 * ( 1<<16 ) ) + 0.5 ) * r ) +
-        ( ( uint32_t )( ( 129.057 * ( 1<<16 ) ) + 0.5 ) * g ) +
-        ( (uint32_t )( ( 25.064 * ( 1<<16 ) ) + 0.5 ) * b ) +
+    uint32_t y = ( ( uint32_t )( ( 65.7377882352941 * ( 1<<16 ) ) + 0.5 ) * r ) +
+        ( ( uint32_t )( ( 129.0571294117647 * ( 1<<16 ) ) + 0.5 ) * g ) +
+        ( (uint32_t )( ( 25.0639058823529 * ( 1<<16 ) ) + 0.5 ) * b ) +
         ( 256 * ( 1<<16 ) ) * 16;
     y = ( y + ( 1<<23 ) ) >> 24;
     return ( uint16_t )y;
@@ -18,9 +35,9 @@ static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 {
     // FP shift of 22
-    int32_t cb = ( ( int32_t )( ( -37.945 * ( 1<<15 ) ) - 0.5 ) * r ) +
-        ( ( int32_t )( ( -74.494 * ( 1<<15 ) ) - 0.5 ) * g ) +
-        ( ( int32_t )( ( 112.439 * ( 1<<15 ) ) + 0.5 ) * b ) +
+    int32_t cb = ( ( int32_t )( ( -37.9450869960784 * ( 1<<15 ) ) - 0.5 ) * r ) +
+        ( ( int32_t )( ( -74.4941286901961 * ( 1<<15 ) ) - 0.5 ) * g ) +
+        ( ( int32_t )( ( 112.4392156862745 * ( 1<<15 ) ) + 0.5 ) * b ) +
         ( 256 * ( 1<<15 ) ) * 128;
     cb = ( cb + ( 1<<21 ) ) >> 22;
     return ( uint16_t )cb;
@@ -31,9 +48,9 @@ static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 static inline uint16_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
 {
     // FP shift of 22
-    int32_t cr = ( ( int32_t )( ( 112.439 * ( 1<<15 ) ) + 0.5 ) * r ) +
-        ( ( int32_t )( ( -94.154 * ( 1<<15 ) ) - 0.5 ) * g ) +
-        ( ( int32_t )( ( -18.285 * ( 1<<15 ) ) - 0.5 ) * b ) +
+    int32_t cr = ( ( int32_t )( ( 112.4392156862745 * ( 1<<15 ) ) + 0.5 ) * r ) +
+        ( ( int32_t )( ( -94.1539006745098 * ( 1<<15 ) ) - 0.5 ) * g ) +
+        ( ( int32_t )( ( -18.2853150117647 * ( 1<<15 ) ) - 0.5 ) * b ) +
         ( 256 * ( 1<<15 ) ) * 128;
     cr = ( cr + ( 1<<21 ) ) >> 22;
     return ( uint16_t )cr;

@@ -24,7 +24,7 @@ static const rgb2y_rgbPixel_t test_rgbImage[TEST_WIDTH * TEST_HEIGHT] = {
 };
 
 static const rgb2y_yQuad_t expectedYccImage[1] = {
-    { { 67, 48, 56, 54 }, 52, 97 }
+    { { 67, 49, 57, 54 }, 105, 196 }
 };
 
 static rgb2y_yQuad_t yccImage[1];
