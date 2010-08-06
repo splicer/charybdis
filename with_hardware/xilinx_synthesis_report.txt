@@ -1,0 +1,765 @@
+Release 12.2 - xst M.63c (nt64)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> Reading design: converter.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "converter.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "converter"
+Output Format                      : NGC
+Target Device                      : xc5vlx30-3-ff324
+
+---- Source Options
+Top Module Name                    : converter
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c1.vhd" in Library work.
+Architecture synth_c1 of Entity sync_rom_c1 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c2.vhd" in Library work.
+Architecture synth_c2 of Entity sync_rom_c2 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c3.vhd" in Library work.
+Architecture synth_c3 of Entity sync_rom_c3 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/y_adder.vhd" in Library work.
+Architecture behaviour of Entity y_adder is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c4.vhd" in Library work.
+Architecture synth_c4 of Entity sync_rom_c4 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c5.vhd" in Library work.
+Architecture synth_c5 of Entity sync_rom_c5 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c6.vhd" in Library work.
+Architecture synth_c6 of Entity sync_rom_c6 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/c_adder.vhd" in Library work.
+Architecture behaviour of Entity c_adder is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c7.vhd" in Library work.
+Architecture synth_c7 of Entity sync_rom_c7 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c8.vhd" in Library work.
+Architecture synth_c8 of Entity sync_rom_c8 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/sync_rom_c9.vhd" in Library work.
+Architecture synth_c9 of Entity sync_rom_c9 is up to date.
+Compiling vhdl file "C:/Users/splicer/crap/converter.vhd" in Library work.
+Architecture structure of Entity converter is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <converter> in library <work> (architecture <structure>) with generics.
+	c_length = 9
+	in_length = 8
+	y_length = 8
+
+Analyzing hierarchy for entity <sync_rom_c1> in library <work> (architecture <synth_c1>) with generics.
+	add_length = 8
+	data_length = 8
+
+Analyzing hierarchy for entity <sync_rom_c2> in library <work> (architecture <synth_c2>) with generics.
+	add_length = 8
+	data_length = 8
+
+Analyzing hierarchy for entity <sync_rom_c3> in library <work> (architecture <synth_c3>) with generics.
+	add_length = 8
+	data_length = 8
+
+Analyzing hierarchy for entity <y_adder> in library <work> (architecture <behaviour>) with generics.
+	length = 8
+
+Analyzing hierarchy for entity <sync_rom_c4> in library <work> (architecture <synth_c4>) with generics.
+	add_length = 8
+	data_length = 9
+
+Analyzing hierarchy for entity <sync_rom_c5> in library <work> (architecture <synth_c5>) with generics.
+	add_length = 8
+	data_length = 9
+
+Analyzing hierarchy for entity <sync_rom_c6> in library <work> (architecture <synth_c6>) with generics.
+	add_length = 8
+	data_length = 9
+
+Analyzing hierarchy for entity <c_adder> in library <work> (architecture <behaviour>) with generics.
+	length = 9
+
+Analyzing hierarchy for entity <sync_rom_c7> in library <work> (architecture <synth_c7>) with generics.
+	add_length = 8
+	data_length = 9
+
+Analyzing hierarchy for entity <sync_rom_c8> in library <work> (architecture <synth_c8>) with generics.
+	add_length = 8
+	data_length = 9
+
+Analyzing hierarchy for entity <sync_rom_c9> in library <work> (architecture <synth_c9>) with generics.
+	add_length = 8
+	data_length = 9
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <converter> in library <work> (Architecture <structure>).
+	c_length = 9
+	in_length = 8
+	y_length = 8
+Entity <converter> analyzed. Unit <converter> generated.
+
+Analyzing generic Entity <sync_rom_c1> in library <work> (Architecture <synth_c1>).
+	add_length = 8
+	data_length = 8
+Entity <sync_rom_c1> analyzed. Unit <sync_rom_c1> generated.
+
+Analyzing generic Entity <sync_rom_c2> in library <work> (Architecture <synth_c2>).
+	add_length = 8
+	data_length = 8
+Entity <sync_rom_c2> analyzed. Unit <sync_rom_c2> generated.
+
+Analyzing generic Entity <sync_rom_c3> in library <work> (Architecture <synth_c3>).
+	add_length = 8
+	data_length = 8
+Entity <sync_rom_c3> analyzed. Unit <sync_rom_c3> generated.
+
+Analyzing generic Entity <y_adder> in library <work> (Architecture <behaviour>).
+	length = 8
+Entity <y_adder> analyzed. Unit <y_adder> generated.
+
+Analyzing generic Entity <sync_rom_c4> in library <work> (Architecture <synth_c4>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c4> analyzed. Unit <sync_rom_c4> generated.
+
+Analyzing generic Entity <sync_rom_c5> in library <work> (Architecture <synth_c5>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c5> analyzed. Unit <sync_rom_c5> generated.
+
+Analyzing generic Entity <sync_rom_c6> in library <work> (Architecture <synth_c6>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c6> analyzed. Unit <sync_rom_c6> generated.
+
+Analyzing generic Entity <c_adder> in library <work> (Architecture <behaviour>).
+	length = 9
+Entity <c_adder> analyzed. Unit <c_adder> generated.
+
+Analyzing generic Entity <sync_rom_c7> in library <work> (Architecture <synth_c7>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c7> analyzed. Unit <sync_rom_c7> generated.
+
+Analyzing generic Entity <sync_rom_c8> in library <work> (Architecture <synth_c8>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c8> analyzed. Unit <sync_rom_c8> generated.
+
+Analyzing generic Entity <sync_rom_c9> in library <work> (Architecture <synth_c9>).
+	add_length = 8
+	data_length = 9
+Entity <sync_rom_c9> analyzed. Unit <sync_rom_c9> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <sync_rom_c1>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c1.vhd".
+    Found 256x8-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 8-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <sync_rom_c1> synthesized.
+
+
+Synthesizing Unit <sync_rom_c2>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c2.vhd".
+    Found 256x8-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 8-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <sync_rom_c2> synthesized.
+
+
+Synthesizing Unit <sync_rom_c3>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c3.vhd".
+    Found 256x8-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 8-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <sync_rom_c3> synthesized.
+
+
+Synthesizing Unit <y_adder>.
+    Related source file is "C:/Users/splicer/crap/y_adder.vhd".
+    Found 8-bit adder for signal <sum>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <y_adder> synthesized.
+
+
+Synthesizing Unit <sync_rom_c4>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c4.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c4> synthesized.
+
+
+Synthesizing Unit <sync_rom_c5>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c5.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c5> synthesized.
+
+
+Synthesizing Unit <sync_rom_c6>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c6.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c6> synthesized.
+
+
+Synthesizing Unit <c_adder>.
+    Related source file is "C:/Users/splicer/crap/c_adder.vhd".
+    Found 9-bit adder for signal <sum>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <c_adder> synthesized.
+
+
+Synthesizing Unit <sync_rom_c7>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c7.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c7> synthesized.
+
+
+Synthesizing Unit <sync_rom_c8>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c8.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c8> synthesized.
+
+
+Synthesizing Unit <sync_rom_c9>.
+    Related source file is "C:/Users/splicer/crap/sync_rom_c9.vhd".
+    Found 256x9-bit ROM for signal <data_out$rom0000> created at line 289.
+    Found 9-bit register for signal <data_out>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   9 D-type flip-flop(s).
+Unit <sync_rom_c9> synthesized.
+
+
+Synthesizing Unit <converter>.
+    Related source file is "C:/Users/splicer/crap/converter.vhd".
+WARNING:Xst:1306 - Output <register_out<31:26>> is never assigned.
+WARNING:Xst:647 - Input <register_in<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <converter> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 9
+ 256x8-bit ROM                                         : 3
+ 256x9-bit ROM                                         : 6
+# Adders/Subtractors                                   : 9
+ 8-bit adder                                           : 3
+ 9-bit adder                                           : 6
+# Registers                                            : 9
+ 8-bit register                                        : 3
+ 9-bit register                                        : 6
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <sync_rom_c1>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c1> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c2>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c2> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c3>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 8-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c3> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c4>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c4> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c5>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c5> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c6>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c6> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c7>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c7> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c8>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c8> synthesized (advanced).
+
+Synthesizing (advanced) Unit <sync_rom_c9>.
+INFO:Xst:3044 - The ROM <Mrom_data_out_rom0000> will be implemented as a read-only BLOCK RAM, absorbing the register: <data_out>.
+INFO:Xst:3039 - The RAM <Mrom_data_out_rom0000> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 256-word x 9-bit                    |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to internal node          | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to internal node          |          |
+    |     doA            | connected to signal <data_out>      |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <sync_rom_c9> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 9
+ 256x8-bit single-port block RAM                       : 3
+ 256x9-bit single-port block RAM                       : 6
+# Adders/Subtractors                                   : 9
+ 8-bit adder                                           : 3
+ 9-bit adder                                           : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2697 - Unit <converter> : the RAMs <mult6/Mrom_data_out_rom0000>, <mult7/Mrom_data_out_rom0000> are packed into the single block RAM <mult6/Mrom_data_out_rom00001>
+
+Optimizing unit <converter> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block converter, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : converter.ngr
+Top Level Output File Name         : converter
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 65
+
+Cell Usage :
+# BELS                             : 147
+#      GND                         : 1
+#      LUT1                        : 2
+#      LUT2                        : 33
+#      LUT3                        : 5
+#      LUT4                        : 15
+#      LUT6                        : 7
+#      MUXCY                       : 39
+#      VCC                         : 1
+#      XORCY                       : 44
+# RAMS                             : 8
+#      RAMB18                      : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 50
+#      IBUF                        : 24
+#      OBUF                        : 26
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx30ff324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                   62  out of  19200     0%  
+    Number used as Logic:                62  out of  19200     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     62
+   Number with an unused Flip Flop:      62  out of     62   100%  
+   Number with an unused LUT:             0  out of     62     0%  
+   Number of fully used LUT-FF pairs:     0  out of     62     0%  
+   Number of unique control sets:         0
+
+IO Utilization: 
+ Number of IOs:                          65
+ Number of bonded IOBs:                  51  out of    220    23%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                4  out of     32    12%  
+    Number using Block RAM only:          4
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 8     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 1.209ns
+   Maximum output required time after clock: 6.822ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 72 / 72
+-------------------------------------------------------------------------
+Offset:              1.209ns (Levels of Logic = 1)
+  Source:            register_in<7> (PAD)
+  Destination:       mult1/Mrom_data_out_rom0000 (RAM)
+  Destination Clock: clk rising
+
+  Data Path: register_in<7> to mult1/Mrom_data_out_rom0000
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.694   0.243  register_in_7_IBUF (register_in_7_IBUF)
+     RAMB18:ADDRA10            0.272          mult1/Mrom_data_out_rom0000
+    ----------------------------------------
+    Total                      1.209ns (0.966ns logic, 0.243ns route)
+                                       (79.9% logic, 20.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2359 / 26
+-------------------------------------------------------------------------
+Offset:              6.822ns (Levels of Logic = 12)
+  Source:            mult6/Mrom_data_out_rom00001 (RAM)
+  Destination:       register_out<25> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: mult6/Mrom_data_out_rom00001 to register_out<25>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18:CLKB->DOB0     1   1.892   0.436  mult6/Mrom_data_out_rom00001 (cr_c7<0>)
+     LUT2:I0->O            1   0.086   0.000  adder7/Madd_sum_lut<0> (adder7/Madd_sum_lut<0>)
+     MUXCY:S->O            1   0.305   0.000  adder7/Madd_sum_cy<0> (adder7/Madd_sum_cy<0>)
+     MUXCY:CI->O           1   0.023   0.000  adder7/Madd_sum_cy<1> (adder7/Madd_sum_cy<1>)
+     MUXCY:CI->O           1   0.023   0.000  adder7/Madd_sum_cy<2> (adder7/Madd_sum_cy<2>)
+     MUXCY:CI->O           1   0.023   0.000  adder7/Madd_sum_cy<3> (adder7/Madd_sum_cy<3>)
+     MUXCY:CI->O           1   0.023   0.000  adder7/Madd_sum_cy<4> (adder7/Madd_sum_cy<4>)
+     XORCY:CI->O           3   0.300   0.619  adder7/Madd_sum_xor<5> (adder9/Madd_sumC4_mand)
+     LUT4:I0->O            1   0.086   0.000  adder9/Madd_sum_Madd_lut<6> (adder9/Madd_sum_Madd_lut<6>)
+     MUXCY:S->O            1   0.305   0.000  adder9/Madd_sum_Madd_cy<6> (adder9/Madd_sum_Madd_cy<6>)
+     MUXCY:CI->O           0   0.023   0.000  adder9/Madd_sum_Madd_cy<7> (adder9/Madd_sum_Madd_cy<7>)
+     XORCY:CI->O           1   0.300   0.235  adder9/Madd_sum_Madd_xor<8> (register_out_25_OBUF)
+     OBUF:I->O                 2.144          register_out_25_OBUF (register_out<25>)
+    ----------------------------------------
+    Total                      6.822ns (5.532ns logic, 1.290ns route)
+                                       (81.1% logic, 18.9% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 14.00 secs
+Total CPU time to Xst completion: 14.20 secs
+ 
+--> 
+
+Total memory usage is 333260 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :   19 (   0 filtered)
