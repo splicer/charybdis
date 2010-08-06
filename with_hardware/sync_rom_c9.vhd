@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity sync_rom_c9 is
-    generic (data_length : natural := 8;
+    generic (data_length : natural := 9;
              add_length  : natural := 8);
 
     port ( clk          : in  std_logic;
