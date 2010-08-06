@@ -28,8 +28,8 @@ int main( int argc, char *argv[] )
         return 1;
     }
 
-    for( int i = 1; i < 13; i++ ) {
-        rgbUint[i] = atoi( argv[i] );
+    for( int i = 0; i < 12; i++ ) {
+        rgbUint[i] = atoi( argv[i+1] );
     }
 
     rgb[0].r = ( uint8_t )rgbUint[0];
