@@ -40,7 +40,7 @@ architecture behaviour of converter_testbench is -------------------------------
 
 
 begin
-    -- test_converter: converter port map (myClk, register_in, register_out); 
+    test_converter: converter port map (myClk, register_in, register_out); 
 
     process
         variable l : line;
@@ -69,6 +69,8 @@ begin
         y   <= register_out(7 downto 0);
         cb  <= register_out(16 downto 8);
         cr  <= register_out(25 downto 17);
+
+        wait for 10 ns;
 
         write (l, "Red:   " & str(red));
         writeline (output, l);
