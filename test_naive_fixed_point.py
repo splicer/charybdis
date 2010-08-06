@@ -11,9 +11,17 @@ def run_naive_fixed_point(test_vector):
     return [int(i) for i in re.split(r"\s+", result.strip())]
 
 random.seed()
-for i in xrange(10):
+num_successes = 0
+num_tests = 1000
+for i in xrange(num_tests):
     test_vector = [[random.randint(0, 255) for x in range(3)] for y in range(4)]
-    #test_vector = [[255,255,255],[0,0,0],[0,0,0],[0,0,0]]
-    print test_vector
-    print run_naive_fixed_point(test_vector)
-    print downsampled_ycc_from_rgb(*test_vector)
+    nfp = run_naive_fixed_point(test_vector)
+    ideal = downsampled_ycc_from_rgb(*test_vector)
+    if nfp != ideal:
+        #print test_vector
+        #print "ideal:       %s" % str(ideal)
+        #print "fixed_point: %s" % str(nfp)
+        pass
+    else:
+        num_successes += 1
+print "passed %d / %d tests" % (num_successes, num_tests)
