@@ -140,6 +140,6 @@ begin
       adder7: c_adder port map (cr_c7, cr_c8, cr_sum1);
       adder8: c_adder port map (cr_c9, b"010000000", cr_sum2);
       adder9: c_adder port map (cr_sum1, cr_sum2, cr);
-  
+
 end architecture structure;
 
