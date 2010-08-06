@@ -16,19 +16,10 @@ def downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4):
     return [int(round(x)) for x in (ycc1[0], ycc2[0], ycc3[0], ycc4[0], avg_cb, avg_cr)]
 
 if __name__ == '__main__':
-    import random
-    random.seed()
-    rgb1 = (200, 0, 2)
-    rgb2 = (127, 0, 0)
-    rgb3 = (155, 2, 0)
-    rgb4 = (140, 4, 2)
-    #rgb1 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    #rgb2 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    #rgb3 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    #rgb4 = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-    print "RGB1: %s" % str(rgb1)
-    print "RGB2: %s" % str(rgb2)
-    print "RGB3: %s" % str(rgb3)
-    print "RGB4: %s" % str(rgb4)
-    downsampled_ycc = downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4)
-    print "Downsampled YCbCr (y1,y2,y3,y4,cb,cr):\n%s" % str(downsampled_ycc)
+    import sys
+
+    if len(sys.argv) != 13:
+        raise Exception("please supply 12 decimal values")
+    rgb_pixels = [int(x) for x in sys.argv[1:]]
+    ycc = downsampled_ycc_from_rgb(rgb_pixels[0:3], rgb_pixels[3:6], rgb_pixels[6:9], rgb_pixels[9:12])
+    print " ".join([str(i) for i in ycc])
