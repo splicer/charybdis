@@ -22,9 +22,9 @@
 /* 8-bit */
 static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 {
-    uint8_t y0 = ( uint8_t )( r * 65.7377882352941/255 + 0.5 );
-    uint8_t y1 = ( uint8_t )( g * 129.0571294117647/255 + 0.5 );
-    uint8_t y2 = ( uint8_t )( b * 25.0639058823529/255 + 0.5 );
+    uint8_t y0 = ( uint8_t )( r * 65.7377882352941/256 + 0.5 );
+    uint8_t y1 = ( uint8_t )( g * 129.0571294117647/256 + 0.5 );
+    uint8_t y2 = ( uint8_t )( b * 25.0639058823529/256 + 0.5 );
     return y0 + y1 + y2 + 16;
 }
 
@@ -32,9 +32,9 @@ static inline uint16_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 /* 9-bit */
 static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 {
-    int16_t cb0 = ( int16_t )( r * 2 * -37.9450869960784/255 - 0.5 );
-    int16_t cb1 = ( int16_t )( g * 2 * -74.4941286901961/255 - 0.5 );
-    int16_t cb2 = ( int16_t )( b * 2 * 112.4392156862745/255 + 0.5 );
+    int16_t cb0 = ( int16_t )( r * 2 * -37.9450869960784/256 - 0.5 );
+    int16_t cb1 = ( int16_t )( g * 2 * -74.4941286901961/256 - 0.5 );
+    int16_t cb2 = ( int16_t )( b * 2 * 112.4392156862745/256 + 0.5 );
     return ( uint16_t )( cb0 + cb1 + cb2 + 128 * 2 );
 }
 
@@ -42,9 +42,9 @@ static inline uint16_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 /* 9-bit */
 static inline uint16_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
 {
-    int16_t cr0 = ( int16_t )( r * 2 * 112.4392156862745/255 + 0.5 );
-    int16_t cr1 = ( int16_t )( g * 2 * -94.1539006745098/255 - 0.5 );
-    int16_t cr2 = ( int16_t )( b * 2 * -18.2853150117647/255 - 0.5 );
+    int16_t cr0 = ( int16_t )( r * 2 * 112.4392156862745/256 + 0.5 );
+    int16_t cr1 = ( int16_t )( g * 2 * -94.1539006745098/256 - 0.5 );
+    int16_t cr2 = ( int16_t )( b * 2 * -18.2853150117647/256 - 0.5 );
     return ( uint16_t )( cr0 + cr1 + cr2 + 128 * 2 );
 }
 
