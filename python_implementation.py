@@ -2,9 +2,21 @@
 
 def ycc_from_rgb(rgb):
     # 8-bit RGB -> 8,9,9-bit YCbCr
-    y = sum((int(round(65.738/256 * rgb[0])), int(round(129.057/256 * rgb[1])), int(round(25.064/256 * rgb[2])), 16))
-    cb = sum((int(round(-37.945/256 * rgb[0] * 2)), int(round(-74.494/256 * rgb[1] * 2)), int(round(112.439/256 * rgb[2] * 2)), 128 * 2))
-    cr = sum((int(round(112.439/256 * rgb[0] * 2)), int(round(-94.154/256 * rgb[1] * 2)), int(round(-18.285/256 * rgb[2] * 2)), 128 * 2))
+    y = sum((
+        int(round(65.7377882352941/256 * rgb[0])),
+        int(round(129.0571294117647/256 * rgb[1])),
+        int(round(25.0639058823529/256 * rgb[2])),
+        16))
+    cb = sum((
+        int(round(-37.9450869960784/256 * rgb[0] * 2)),
+        int(round(-74.4941286901961/256 * rgb[1] * 2)),
+        int(round(112.4392156862745/256 * rgb[2] * 2)),
+        128 * 2))
+    cr = sum((
+        int(round(112.4392156862745/256 * rgb[0] * 2)),
+        int(round(-94.1539006745098/256 * rgb[1] * 2)),
+        int(round(-18.2853150117647/256 * rgb[2] * 2)),
+        128 * 2))
     return (y, cb, cr)
 
 def downsampled_ycc_from_rgb(rgb1, rgb2, rgb3, rgb4):
