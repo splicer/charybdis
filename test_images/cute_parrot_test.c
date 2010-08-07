@@ -1,10 +1,6 @@
-/* GIMP RGB C-Source image dump (cute_parrot_test.c) */
+#include "cute_parrot_test.h"
 
-#define CUTE_PARROT_TEST_WIDTH (528)
-#define CUTE_PARROT_TEST_HEIGHT (556)
-#define CUTE_PARROT_TEST_BYTES_PER_PIXEL (3) /* 3:RGB, 4:RGBA */
-#define CUTE_PARROT_TEST_PIXEL_DATA ((unsigned char*) CUTE_PARROT_TEST_pixel_data)
-static const unsigned char CUTE_PARROT_TEST_pixel_data[528 * 556 * 3 + 1] =
+const uint8_t CUTE_PARROT_TEST_pixel_data[528 * 556 * 3 + 1] =
 ("?G2?G2AF2AF2CF1CG0DF0DF.HF-JH/NJ/NJ/PK.PK.SL/WN-]O*`Q(dS(fU)jU*kV'pY't[%x"
  "]&}^%\200`%\204b#\211c$\212d#\216g$\220i$\226l$\227m#\231m\"\233p\"\240p$"
  "\242s#\246s\"\247t!\251u!\252v\"\253w!\254x\"\254z%\255{&\255{&\256|'\255"
@@ -21386,4 +21382,3 @@ static const unsigned char CUTE_PARROT_TEST_pixel_data[528 * 556 * 3 + 1] =
  "FZ\35FZ\35FZ\37EY\36FW\40FW\40DU\36DU\36ES\36ES\36DR\37CQ\36BP\35BP\35AO\36"
  "AO\36@M\37?L\36?J\37?J\37>I\37>I\37?G\40>F!>E#=D\"<C\";B!<A#<A#<?\"<?\"<?"
  "\"<?\"<?\"<?\";>#;>#:=\";>#=?'>@(>@(=?'<>&;=%");
-
