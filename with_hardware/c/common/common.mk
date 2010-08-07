@@ -9,7 +9,7 @@ vpath %.h ../common
 CFLAGS += -I../common
 
 .PHONY: all
-all: $(PRIMARY_TARGET)
+all: $(PRIMARY_TARGET) rgb2y.s
 
 .PHONY: clean
 clean:

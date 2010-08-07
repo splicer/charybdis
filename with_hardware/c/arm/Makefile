@@ -7,3 +7,6 @@ include ../common/common.mk
 
 OBJS += main.o
 main.o: main.c rgb2y.h
+
+rgb2y.s: rgb2y.c rgb2y.h
+	$(CC) -S $(CFLAGS) $<
