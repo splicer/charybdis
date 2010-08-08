@@ -1,6 +1,9 @@
 .*
 *.o
 *.pyc
+*.s
+test
+test.elf
 
 # exceptions to the above rules
 !.gitignore
