@@ -23,7 +23,7 @@ endif
 ifeq ($(USE_IO), yes)
   OBJS += main_with_io.o
 else
-  OBJS += main.o
+  OBJS += main.o cute_parrot_test.o
 endif
 
 ifeq ($(IMPLEMENTATION_TYPE), floating_point)
@@ -55,3 +55,7 @@ rgb2y_%.s: rgb2y_%.c rgb2y.h
 
 test: $$(OBJS)
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(OBJS)
+
+cute_parrot_test.o: cute_parrot_test.h
+
+main%.o: main%.c rgb2y.h
