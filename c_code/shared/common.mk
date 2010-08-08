@@ -36,6 +36,11 @@ ifeq ($(IMPLEMENTATION_TYPE), fixed_point)
   OBJS += rgb2y_fixed_point.o
 endif
 
+ifeq ($(IMPLEMENTATION_TYPE), optimized)
+  TOP_LEVEL_TARGETS += rgb2y_optimized.s
+  OBJS += rgb2y_optimized.o
+endif
+
 ifeq ($(IMPLEMENTATION_TYPE), with_hardware)
   TOP_LEVEL_TARGETS += test.elf rgb2y_with_hardware_noops.s rgb2y_with_hardware.s
   OBJS += rgb2y_with_hardware_noops.o
