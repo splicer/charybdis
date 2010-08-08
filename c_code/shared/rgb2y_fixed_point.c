@@ -17,8 +17,8 @@
  * Also, according to the C99 standard, casting a float to an int rounds
  * towards zero.
  *
- * According to a test of 1000000 random vectors, this implementation produces a
- * perfect result 99.95 % of the time. In the other 0.05 %, the error is ±1.
+ * According to a test of 100000 random vectors, this implementation produces a
+ * perfect result 100 % of the time.
  */
 
 /* 8-bit */

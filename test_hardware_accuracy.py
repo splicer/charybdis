@@ -33,7 +33,7 @@ def hardware(rgb1, rgb2, rgb3, rgb4):
 
 random.seed()
 num_successes = 0
-num_tests = 500000
+num_tests = 100000
 error_vector = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 for i in xrange(num_tests):
     test_vector = [[random.randint(0, 255) for x in range(3)] for y in range(4)]
