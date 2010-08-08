@@ -9,8 +9,9 @@ CFLAGS += -Wall -Wextra -O1 -g -std=gnu99
 ASFLAGS += $(filter-out -g, $(CFLAGS))
 
 ifeq ($(PLATFORM), arm)
-  CC := arm-linux-gnueabi-gcc
-  AS := arm-linux-gnueabi-as
+  #CC := arm-linux-gnueabi-gcc
+  #AS := arm-linux-gnueabi-as
+  CC := /usr/local/arm-linux/bin/arm-linux-gcc
   LDFLAGS += -static
   CFLAGS += -DUSING_ARM
   TOP_LEVEL_TARGETS += test.elf
