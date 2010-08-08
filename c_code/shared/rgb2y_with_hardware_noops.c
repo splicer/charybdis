@@ -7,16 +7,16 @@
 #define CR_SHFT 17
 
 
-int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
+int rgb2y_convertImage( const rgb2y_rgbPixel_t * restrict rgbImg,
                         uint16_t width,
                         uint16_t height,
-                        rgb2y_yQuad_t *yccImg )
+                        rgb2y_yQuad_t * restrict yccImg )
 {
-    rgb2y_yQuad_t *yQuad = yccImg;
+    register rgb2y_yQuad_t *yQuad = yccImg;
+    register const rgb2y_rgbPixel_t *p = rgbImg;
 
     for( uint16_t i = 0; i < height; i+=2 ) {
         for( uint16_t j = 0; j < width; j+=2 ) {
-            const rgb2y_rgbPixel_t *p = &rgbImg[i * width + j];
             
             uint32_t input;
             uint32_t result;
@@ -62,7 +62,7 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
             cb_sum += (result >> CB_SHFT) & C_MASK;
             cr_sum += (result >> CR_SHFT) & C_MASK;
             
-            p = &rgbImg[(i+1) * width + j];
+            p = (p + width - 1);
 
 
             /* Pack the input register bits as:
@@ -96,10 +96,12 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
             /* NO OP to simulate call to hardware for profiling purposes */
             asm("mov r0, r0");
 
-
             yQuad->y[0] = result & Y_MASK;
             cb_sum += (result >> CB_SHFT) & C_MASK;
             cr_sum += (result >> CR_SHFT) & C_MASK;
+
+            p = (p - width + 1);
+
 
             // downsample 4 9-bit values to 1 8-bit value for Cb and Cr
             yQuad->cb = ( cb_sum + ( 1<<2 ) ) >> 3;
