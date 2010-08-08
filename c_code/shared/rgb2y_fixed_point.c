@@ -22,7 +22,7 @@
  */
 
 /* 8-bit */
-static inline uint8_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
+static uint8_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 {
     uint32_t y = ( ( uint32_t )( ( 65.7377882352941 * ( 1<<16 ) ) + 0.5 ) ) * r +
         ( ( uint32_t )( ( 129.0571294117647 * ( 1<<16 ) ) + 0.5 ) ) * g +
@@ -34,7 +34,7 @@ static inline uint8_t rgb2y( uint8_t r, uint8_t g, uint8_t b )
 
 
 /* 30-bit */
-static inline uint32_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
+static uint32_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 {
     int32_t cb = ( ( int32_t )( ( -37.9450869960784 * ( 1<<15 ) ) - 0.5 ) ) * r +
         ( ( int32_t )( ( -74.4941286901961 * ( 1<<15 ) ) - 0.5 ) ) * g +
@@ -46,7 +46,7 @@ static inline uint32_t rgb2cb( uint8_t r, uint8_t g, uint8_t b )
 
 
 /* 30-bit */
-static inline uint32_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
+static uint32_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
 {
     int32_t cr = ( ( int32_t )( ( 112.4392156862745 * ( 1<<15 ) ) + 0.5 ) ) * r +
         ( ( int32_t )( ( -94.1539006745098 * ( 1<<15 ) ) - 0.5 ) ) * g +
