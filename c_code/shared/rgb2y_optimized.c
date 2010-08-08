@@ -63,10 +63,10 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t * restrict rgbImg,
                         rgb2y_yQuad_t * restrict yccImg )
 {
     register rgb2y_yQuad_t *yQuad = yccImg;
+    register const rgb2y_rgbPixel_t *p = rgbImg;
 
     for( uint16_t i = 0; i < height; i+=2 ) {
         for( uint16_t j = 0; j < width; j+=2 ) {
-            register const rgb2y_rgbPixel_t *p = &rgbImg[i * width + j];
 
             yQuad->y[0] = rgb2y( p->r, p->g, p->b );
             uint32_t cb1 = rgb2cb( p->r, p->g, p->b );
@@ -76,7 +76,7 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t * restrict rgbImg,
             yQuad->y[1] = rgb2y( p->r, p->g, p->b );
             uint32_t cb2 = rgb2cb( p->r, p->g, p->b );
             uint32_t cr2 = rgb2cr( p->r, p->g, p->b );
-            p = &rgbImg[(i+1) * width + j];
+            p = (p + width - 1);
 
             yQuad->y[2] = rgb2y( p->r, p->g, p->b );
             uint32_t cb3 = rgb2cb( p->r, p->g, p->b );
@@ -86,6 +86,7 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t * restrict rgbImg,
             yQuad->y[3] = rgb2y( p->r, p->g, p->b );
             uint32_t cb4 = rgb2cb( p->r, p->g, p->b );
             uint32_t cr4 = rgb2cr( p->r, p->g, p->b );
+            p = (p - width + 1);
 
             // downsample 4 30-bit values to 1 8-bit value for Cb and Cr
             yQuad->cb = ( ( cb1 + cb2 + cb3 + cb4 ) + ( 1<<23 ) ) >> 24;
