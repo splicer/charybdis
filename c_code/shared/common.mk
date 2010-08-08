@@ -53,7 +53,7 @@ rgb2y_%.o: rgb2y_%.c rgb2y.h
 rgb2y_%.s: rgb2y_%.c rgb2y.h
 	$(CC) -S $< $(CFLAGS) $(ASFLAGS) -o $@
 
-test: $$(OBJS)
+test test.elf: $$(OBJS)
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(OBJS)
 
 cute_parrot_test.o: cute_parrot_test.h
