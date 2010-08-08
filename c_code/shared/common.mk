@@ -38,7 +38,7 @@ endif
 
 ifeq ($(IMPLEMENTATION_TYPE), with_hardware)
   TOP_LEVEL_TARGETS += test.elf rgb2y_with_hardware_noops.s rgb2y_with_hardware.s
-  OBJS += rgb2y_with_hardware.o
+  OBJS += rgb2y_with_hardware_noops.o
 endif
 
 .PHONY: all
