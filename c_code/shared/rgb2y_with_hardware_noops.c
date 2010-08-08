@@ -32,7 +32,10 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
              */
             input = *((uint32_t *)p) & IN_MASK;
 
-            /* NO OP to simulate call to hardware for profiling purposes */
+            /* Simulate call to hardware by writing 0 to result. We could use
+             * a noop, but then we'd get a compiler warning that result isn't
+             * being initialized before use.
+             */
             asm("mov %[result], #0" : [result] "=r" (result));
 
             yQuad->y[0] = result & Y_MASK;
