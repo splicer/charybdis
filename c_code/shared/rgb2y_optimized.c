@@ -57,16 +57,16 @@ static inline uint32_t rgb2cr( uint8_t r, uint8_t g, uint8_t b )
 }
 
 
-int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
+int rgb2y_convertImage( const rgb2y_rgbPixel_t * restrict rgbImg,
                         uint16_t width,
                         uint16_t height,
-                        rgb2y_yQuad_t *yccImg )
+                        rgb2y_yQuad_t * restrict yccImg )
 {
-    rgb2y_yQuad_t *yQuad = yccImg;
+    register rgb2y_yQuad_t *yQuad = yccImg;
 
     for( uint16_t i = 0; i < height; i+=2 ) {
         for( uint16_t j = 0; j < width; j+=2 ) {
-            const rgb2y_rgbPixel_t *p = &rgbImg[i * width + j];
+            register const rgb2y_rgbPixel_t *p = &rgbImg[i * width + j];
 
             yQuad->y[0] = rgb2y( p->r, p->g, p->b );
             uint32_t cb1 = rgb2cb( p->r, p->g, p->b );
