@@ -5,8 +5,8 @@ vpath %.c ../shared
 vpath %.h ../shared
 CFLAGS += -I../shared
 
-CFLAGS += -Wall -Wextra -O2 -g -std=gnu99
-#ASFLAGS += --gstabs
+CFLAGS += -Wall -Wextra -O1 -g -std=gnu99
+ASFLAGS += $(filter-out -g, $(CFLAGS))
 
 ifeq ($(PLATFORM), arm)
   CC := arm-linux-gnueabi-gcc
@@ -51,7 +51,7 @@ clean:
 rgb2y_%.o: rgb2y_%.c rgb2y.h
 
 rgb2y_%.s: rgb2y_%.c rgb2y.h
-	$(CC) -S $< $(CFLAGS) $(ASFLAGS) -o $@
+	$(CC) -S $< $(ASFLAGS) -o $@
 
 test test.elf: $$(OBJS)
 	$(CC) -o $@ $(CFLAGS) $(LDFLAGS) $(OBJS)
