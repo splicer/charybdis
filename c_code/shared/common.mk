@@ -6,9 +6,9 @@ vpath %.h ../shared
 CFLAGS += -I../shared
 
 CFLAGS += -Wall -Wextra -O2 -g -std=gnu99
-ASFLAGS += --gstabs
+#ASFLAGS += --gstabs
 
-ifeq($(PLATFORM), arm)
+ifeq ($(PLATFORM), arm)
   CC := arm-linux-gnueabi-gcc
   AS := arm-linux-gnueabi-as
   LDFLAGS += -static
@@ -20,23 +20,23 @@ else
   TOP_LEVEL_TARGETS += test
 endif
 
-ifeq($(USE_IO), yes)
+ifeq ($(USE_IO), yes)
   OBJS += main_with_io.o
 else
   OBJS += main.o
 endif
 
-ifeq($(IMPLEMENTATION_TYPE), floating_point)
+ifeq ($(IMPLEMENTATION_TYPE), floating_point)
   TOP_LEVEL_TARGETS += rgb2y_floating_point.s
   OBJS += rgb2y_floating_point.o
 endif
 
-ifeq($(IMPLEMENTATION_TYPE), fixed_point)
+ifeq ($(IMPLEMENTATION_TYPE), fixed_point)
   TOP_LEVEL_TARGETS += rgb2y_fixed_point.s
   OBJS += rgb2y_fixed_point.o
 endif
 
-ifeq($(IMPLEMENTATION_TYPE), with_hardware)
+ifeq ($(IMPLEMENTATION_TYPE), with_hardware)
   TOP_LEVEL_TARGETS += test.elf rgb2y_with_hardware_noops.s rgb2y_with_hardware.s
   OBJS += rgb2y_with_hardware.o
 endif
