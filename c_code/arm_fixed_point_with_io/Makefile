@@ -1,4 +1,5 @@
-include ../shared/arm.mk
-include ../shared/fixed_point.mk
-include ../shared/with_io.mk
+IMPLEMENTATION_TYPE = fixed_point
+PLATFORM = arm
+USE_IO = yes
+
 include ../shared/common.mk

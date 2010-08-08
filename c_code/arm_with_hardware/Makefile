@@ -1,4 +1,5 @@
-include ../shared/arm.mk
-include ../shared/with_hardware.mk
-include ../shared/without_io.mk
+IMPLEMENTATION_TYPE = with_hardware
+PLATFORM = arm
+USE_IO = no
+
 include ../shared/common.mk

@@ -1,4 +1,5 @@
-include ../shared/unix.mk
-include ../shared/fixed_point.mk
-include ../shared/without_io.mk
+IMPLEMENTATION_TYPE = fixed_point
+PLATFORM = unix
+USE_IO = no
+
 include ../shared/common.mk
