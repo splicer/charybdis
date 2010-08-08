@@ -33,16 +33,17 @@ def hardware(rgb1, rgb2, rgb3, rgb4):
 
 random.seed()
 num_successes = 0
-num_tests = 10000
+num_tests = 500000
+error_vector = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 for i in xrange(num_tests):
     test_vector = [[random.randint(0, 255) for x in range(3)] for y in range(4)]
     nfp = hardware(*test_vector)
     ideal = downsampled_ycc_from_rgb(*test_vector)
     if nfp != ideal:
-        #print test_vector
-        #print "ideal:    %s" % str(ideal)
-        #print "hardware: %s" % str(nfp)
-        pass
+        for i in xrange(6):
+            error_vector[i] += abs(nfp[i] - ideal[i])
     else:
         num_successes += 1
-print "passed %d / %d tests" % (num_successes, num_tests)
+error_vector = [x/num_tests for x in error_vector]
+print "passed %2.3f %% of %d tests" % (num_successes * 100.0 / num_tests, num_tests)
+print "average approximation error vector:\n%s" % error_vector
