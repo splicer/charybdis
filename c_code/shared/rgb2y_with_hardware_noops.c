@@ -32,8 +32,8 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
              */
             input = *((uint32_t *)p) & IN_MASK;
 
-            /* Call Hardware */
-            asm("rtoy %[result], %[input]" : [result] "=r" (result) : [input] "r" (input) );
+            /* NO OP to simulate call to hardware for profiling purposes */
+            asm("mov r0, r0");
 
             yQuad->y[0] = result & Y_MASK;
             cb_sum += (result >> CB_SHFT) & C_MASK;
@@ -51,8 +51,9 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
              */
             input = *((uint32_t *)p) & IN_MASK;
 
-            /* Call Hardware */
-            asm("rtoy %[result], %[input]" : [result] "=r" (result) : [input] "r" (input) );
+            /* NO OP to simulate call to hardware for profiling purposes */
+            asm("mov r0, r0");
+
 
             yQuad->y[0] = result & Y_MASK;
             cb_sum += (result >> CB_SHFT) & C_MASK;
@@ -70,8 +71,8 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
              */
             input = *((uint32_t *)p) & IN_MASK;
 
-            /* Call Hardware */
-            asm("rtoy %[result], %[input]" : [result] "=r" (result) : [input] "r" (input) );
+            /* NO OP to simulate call to hardware for profiling purposes */
+            asm("mov r0, r0");
 
             yQuad->y[0] = result & Y_MASK;
             cb_sum += (result >> CB_SHFT) & C_MASK;
@@ -89,8 +90,9 @@ int rgb2y_convertImage( const rgb2y_rgbPixel_t *rgbImg,
              */
             input = *((uint32_t *)p) & IN_MASK;
 
-            /* Call Hardware */
-            asm("rtoy %[result], %[input]" : [result] "=r" (result) : [input] "r" (input) );
+            /* NO OP to simulate call to hardware for profiling purposes */
+            asm("mov r0, r0");
+
 
             yQuad->y[0] = result & Y_MASK;
             cb_sum += (result >> CB_SHFT) & C_MASK;
